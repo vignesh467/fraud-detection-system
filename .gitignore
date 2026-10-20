@@ -1,0 +1,20 @@
+# Dataset is too big for GitHub (about 150 MB)
+data/
+
+# Trained models can be recreated by running main.py
+models/
+
+# Python cache files
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual environment
+venv/
+.venv/
+
+# Editor and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
