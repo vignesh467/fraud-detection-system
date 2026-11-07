@@ -63,15 +63,20 @@ pytest                       # run the unit tests
 ```
 
 ## Results
-Fill in with your own numbers from `results/results.csv`.
+Test set: 56,746 transactions (95 frauds), decision threshold 0.5, `RANDOM_STATE = 42`.
+Full numbers are in `results/results.csv`, with one confusion matrix per detector in `results/`.
 
 | Detector | Precision | Recall | F1 | PR-AUC |
 |---|---|---|---|---|
-| Rule-Based | | | | |
-| Logistic Regression | | | | |
-| Logistic Regression + SMOTE | | | | |
-| Random Forest | | | | |
-| Hybrid | | | | |
+| Rule-Based | 0.000 | 0.000 | 0.000 | 0.002 |
+| Logistic Regression | 0.056 | 0.874 | 0.106 | 0.672 |
+| Logistic Regression + SMOTE | 0.053 | 0.874 | 0.100 | 0.675 |
+| **Random Forest** | **0.945** | **0.726** | **0.821** | **0.801** |
+| Hybrid (Random Forest + Rules) | 0.321 | 0.726 | 0.445 | 0.746 |
+
+Random Forest is the best detector by F1 and is saved to `models/best_detector.joblib`.
+With only 95 frauds in the test set, each fraud is worth about 1% of recall, so small
+differences between detectors are within noise.
 
 ## Future work
 MLOps: experiment tracking (MLflow), REST API (FastAPI), Docker, CI with GitHub Actions.
